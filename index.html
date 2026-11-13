@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacienda Dario Cruz · Villa & Pasadías</title>
+<meta name="description" content="Villa privada para pasadías y eventos en Santo Domingo. Piscina, ranchón, gazebo, áreas verdes y ambiente de campo. Reserva por WhatsApp 809-480-3996.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1F4D3A; --green-dark:#163829; --gold:#D9B26F; --cream:#F3E9D2; --paper:#FBF7EE;
+    --ink:#1d2a24; --muted:#5b6b62; --wa:#1FA855;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.15}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(31,77,58,.96);backdrop-filter:blur(6px);color:var(--cream)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;font-size:1.05rem}
+  .brand .navlogo{width:38px;height:38px;border-radius:50%}
+  nav ul{display:flex;gap:22px;list-style:none;font-size:.92rem}
+  nav ul a{text-decoration:none;opacity:.85}
+  nav ul a:hover{opacity:1;color:var(--gold)}
+  @media (max-width:760px){nav ul{display:none}}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn-ghost{border:1.5px solid var(--gold);color:var(--cream)}
+  .btn-sm{padding:9px 16px;font-size:.88rem}
+  .wa-ico{width:20px;height:20px;fill:currentColor}
+
+  /* Hero */
+  header.hero{background:radial-gradient(1200px 500px at 70% -10%,#2c6a50 0%,var(--green) 55%,var(--green-dark) 100%);color:var(--cream);padding:72px 0 88px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;inset:auto -10% -1px -10%;height:70px;background:var(--paper);border-radius:50% 50% 0 0/100% 100% 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  .eyebrow{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;font-weight:600;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.3rem,5.5vw,3.8rem);margin-bottom:18px}
+  .hero p.lead{font-size:1.12rem;max-width:520px;opacity:.92;margin-bottom:28px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .rating{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:rgba(255,255,255,.08);border:1px solid rgba(217,178,111,.35);padding:8px 14px;border-radius:999px;font-size:.92rem}
+  .rating b{color:var(--gold)}
+  .hero-logo{justify-self:center;width:min(320px,80vw);aspect-ratio:1;border-radius:50%;box-shadow:0 25px 60px rgba(0,0,0,.35);border:6px solid rgba(217,178,111,.4)}
+  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero p.lead{margin-inline:auto}.hero-ctas{justify-content:center}.hero-logo{width:200px;order:-1}}
+
+  section{padding:72px 0}
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 42px}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--green);margin-bottom:10px}
+  .sec-head p{color:var(--muted)}
+  .divider{width:60px;height:3px;background:var(--gold);margin:14px auto 0;border-radius:2px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .card{background:#fff;border:1px solid #ece3cf;border-radius:18px;padding:28px 24px;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,77,58,.10)}
+  .icon{width:52px;height:52px;border-radius:14px;background:var(--cream);display:grid;place-items:center;font-size:1.6rem;margin-bottom:16px}
+  .card h3{font-size:1.25rem;color:var(--green);margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.95rem}
+
+  .band{background:var(--green);color:var(--cream)}
+  .band .sec-head h2{color:var(--cream)}
+  .band .sec-head p{color:rgba(243,233,210,.8)}
+  .events{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .event{border:1px solid rgba(217,178,111,.35);border-radius:16px;padding:22px;background:rgba(255,255,255,.04)}
+  .event .e{font-size:1.8rem}
+  .event h3{font-size:1.15rem;margin:8px 0 4px;color:var(--gold)}
+  .event p{font-size:.92rem;opacity:.85}
+
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;counter-reset:s}
+  .step{position:relative;background:#fff;border-radius:18px;padding:34px 24px 26px;border:1px solid #ece3cf}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:-18px;left:24px;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--green-dark);font-weight:700;display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:1.2rem}
+  .step h3{color:var(--green);font-size:1.2rem;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.95rem}
+  .center{text-align:center;margin-top:36px}
+
+  .price-table{max-width:760px;margin:0 auto;background:#fff;border:1px solid #ece3cf;border-radius:20px;overflow:hidden}
+  .pt-row{display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;padding:16px 10px;border-top:1px solid #f0e8d6;align-items:center}
+  .pt-row span:first-child{font-weight:600;color:var(--green)}
+  .pt-row span:not(:first-child){font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700}
+  .pt-head{background:var(--green);color:var(--cream);border-top:none}
+  .pt-head span,.pt-head span:first-child,.pt-head span:not(:first-child){font-family:Inter,sans-serif;font-size:.9rem;font-weight:600;color:var(--cream)}
+  .pt-head small{font-weight:400;opacity:.8}
+  .price-notes{list-style:none;max-width:760px;margin:22px auto 0;display:grid;gap:8px;color:var(--muted);font-size:.95rem}
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .review{background:#fff;border-radius:18px;padding:26px;border:1px solid #ece3cf}
+  .stars{color:#E3A008;letter-spacing:2px;margin-bottom:10px}
+  .review p{font-style:italic;margin-bottom:12px}
+  .review span{color:var(--muted);font-size:.88rem}
+  .score{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:30px}
+  .score .big{font-family:"Playfair Display",serif;font-size:3.2rem;color:var(--green);font-weight:700}
+
+  .loc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .map-card{background:var(--green);color:var(--cream);border-radius:22px;padding:36px;position:relative;overflow:hidden}
+  .map-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 22px,rgba(217,178,111,.06) 22px 23px)}
+  .map-card *{position:relative}
+  .map-card h3{font-size:1.6rem;margin-bottom:10px}
+  .map-card p{opacity:.9;margin-bottom:22px}
+  .contact-list{list-style:none;display:grid;gap:14px}
+  .contact-list li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #ece3cf;border-radius:14px;padding:16px 18px}
+  .contact-list .ci{font-size:1.4rem}
+  .contact-list b{display:block;color:var(--green)}
+  .contact-list a{color:var(--muted);word-break:break-all}
+  @media (max-width:760px){.loc{grid-template-columns:1fr}}
+
+  .cta-final{background:linear-gradient(135deg,var(--green-dark),var(--green));color:var(--cream);text-align:center;border-radius:26px;padding:56px 26px;margin:0 22px}
+  .cta-final h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+  .cta-final p{opacity:.88;margin-bottom:26px}
+
+  footer{padding:46px 0 90px;text-align:center;color:var(--muted);font-size:.9rem}
+  footer .social{display:flex;justify-content:center;gap:18px;margin:14px 0}
+  footer .social a{text-decoration:none;color:var(--green);font-weight:600}
+
+  .float-wa{position:fixed;right:18px;bottom:18px;z-index:20;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 25px rgba(0,0,0,.25);color:#fff}
+  .float-wa svg{width:30px;height:30px;fill:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#inicio"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="navlogo"><defs><linearGradient id="g_navlogo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DCA6"/><stop offset=".5" stop-color="#D4A95E"/><stop offset="1" stop-color="#A97A33"/></linearGradient></defs><circle cx="100" cy="100" r="96" fill="#1F4D3A" stroke="url(#g_navlogo)" stroke-width="5"/><g transform="translate(24,22) scale(.76)"><g><path d="M 90,196 C 92,150 100,110 97,66 L 105,66 C 110,110 104,150 104,196 Z" fill="url(#g_navlogo)"/><path d="M 93.0,184 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 93.6,167 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.2,150 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.8,133 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 95.4,116 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.0,99 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.6,82 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 141.0,21.0 182.0,104.0 Q 141.0,47.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 141.0,33.6 182.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 59.0,21.0 18.0,104.0 Q 59.0,47.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 59.0,33.6 18.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 138.0,10.0 176.0,66.0 Q 138.0,36.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 138.0,22.6 176.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 62.0,10.0 24.0,66.0 Q 62.0,36.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 62.0,22.6 24.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 128.0,14.0 156.0,30.0 Q 128.0,36.8 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 128.0,24.8 156.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 72.0,14.0 44.0,30.0 Q 72.0,36.8 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 72.0,24.8 44.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 113.0,20.0 126.0,10.0 Q 113.0,35.2 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 113.0,27.2 126.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 87.0,20.0 74.0,10.0 Q 87.0,35.2 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 87.0,27.2 74.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><circle cx="95" cy="70" r="4.6" fill="url(#g_navlogo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="105" cy="70" r="4.6" fill="url(#g_navlogo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="100" cy="76" r="4.6" fill="url(#g_navlogo)" stroke="#1F4D3A" stroke-width="1.2"/></g></g></svg>Hacienda Dario Cruz</a>
+    <ul>
+      <li><a href="#experiencia">La villa</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#reservar">Cómo reservar</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <a class="btn btn-wa btn-sm" href="https://wa.me/18094803996?text=Hola%20%F0%9F%91%8B%20Quiero%20informaci%C3%B3n%20para%20reservar%20un%20pasad%C3%ADa%20en%20Hacienda%20Dario%20Cruz.">Reservar</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Villa · Pasadías · Eventos</div>
+      <h1>Tu día de campo privado en Santo Domingo</h1>
+      <p class="lead">Piscina, ranchón, gazebo, áreas verdes y el ambiente tranquilo de una hacienda con caballos. El lugar ideal para desconectarte, compartir en familia y celebrar lo que importa.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://wa.me/18094803996?text=Hola%20%F0%9F%91%8B%20Quiero%20informaci%C3%B3n%20para%20reservar%20un%20pasad%C3%ADa%20en%20Hacienda%20Dario%20Cruz."><svg class="wa-ico" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.34-.5.05-.97.23-3.26-.68-2.76-1.09-4.5-3.91-4.64-4.09-.13-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.27c.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46l-.41.48c-.14.14-.28.29-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg>Reservar por WhatsApp</a>
+        <a class="btn btn-ghost" href="#experiencia">Conocer la villa</a>
+      </div>
+      <div class="rating">⭐ <b>4.8</b> en Google · 24 opiniones</div>
+    </div>
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="hero-logo"><defs><linearGradient id="g_hero-logo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DCA6"/><stop offset=".5" stop-color="#D4A95E"/><stop offset="1" stop-color="#A97A33"/></linearGradient></defs><circle cx="100" cy="100" r="96" fill="#1F4D3A" stroke="url(#g_hero-logo)" stroke-width="5"/><g transform="translate(24,22) scale(.76)"><g><path d="M 90,196 C 92,150 100,110 97,66 L 105,66 C 110,110 104,150 104,196 Z" fill="url(#g_hero-logo)"/><path d="M 93.0,184 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 93.6,167 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.2,150 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.8,133 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 95.4,116 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.0,99 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.6,82 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 141.0,21.0 182.0,104.0 Q 141.0,47.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 141.0,33.6 182.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 59.0,21.0 18.0,104.0 Q 59.0,47.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 59.0,33.6 18.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 138.0,10.0 176.0,66.0 Q 138.0,36.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 138.0,22.6 176.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 62.0,10.0 24.0,66.0 Q 62.0,36.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 62.0,22.6 24.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 128.0,14.0 156.0,30.0 Q 128.0,36.8 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 128.0,24.8 156.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 72.0,14.0 44.0,30.0 Q 72.0,36.8 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 72.0,24.8 44.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 113.0,20.0 126.0,10.0 Q 113.0,35.2 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 113.0,27.2 126.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 87.0,20.0 74.0,10.0 Q 87.0,35.2 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 87.0,27.2 74.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><circle cx="95" cy="70" r="4.6" fill="url(#g_hero-logo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="105" cy="70" r="4.6" fill="url(#g_hero-logo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="100" cy="76" r="4.6" fill="url(#g_hero-logo)" stroke="#1F4D3A" stroke-width="1.2"/></g></g></svg>
+  </div>
+</header>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Lo que vas a disfrutar</h2>
+      <p>Un espacio privado, rodeado de naturaleza, para que tu grupo lo tenga todo en un solo lugar.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="icon">🏊</div><h3>Piscina</h3><p>Agua fresca y sol para un día completo de diversión con familia y amigos.</p></div>
+      <div class="card"><div class="icon">🛖</div><h3>Ranchón</h3><p>Área techada para comer, compartir, poner música y montar tu celebración.</p></div>
+      <div class="card"><div class="icon">⛺</div><h3>Gazebo</h3><p>Espacio ideal para actividades, dinámicas de grupo, decoración y celebraciones.</p></div>
+      <div class="card"><div class="icon">🌳</div><h3>Áreas verdes</h3><p>Mucha vegetación, sombra y espacio para que los niños jueguen tranquilos.</p></div>
+      <div class="card"><div class="icon">🐴</div><h3>Ambiente de hacienda</h3><p>Conoce nuestros caballos y llévate las mejores fotos del campo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="eventos">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Perfecto para</h2>
+      <p>Pasadías privados y eventos a tu medida.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="events">
+      <div class="event"><div class="e">🎂</div><h3>Cumpleaños</h3><p>Celebra al aire libre con piscina y espacio para todos.</p></div>
+      <div class="event"><div class="e">👨‍👩‍👧‍👦</div><h3>Familias</h3><p>Un domingo diferente lejos del ruido de la ciudad.</p></div>
+      <div class="event"><div class="e">💼</div><h3>Empresas</h3><p>Team building, convivios y actividades de fin de año.</p></div>
+      <div class="event"><div class="e">🎉</div><h3>Grupos y amigos</h3><p>Reuniones, despedidas y celebraciones especiales.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="precios" style="padding-bottom:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Precios de pasadía</h2>
+      <p>Villa privada para tu grupo, de 10:00 am a 9:00 pm. Precio por grupo, día completo.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="price-table">
+      <div class="pt-row pt-head"><span>Personas</span><span>Lunes a jueves</span><span>Viernes a domingo<br><small>y feriados</small></span></div>
+      <div class="pt-row"><span>Hasta 20</span><span>RD$8,500</span><span>RD$10,000</span></div>
+      <div class="pt-row"><span>21 a 35</span><span>RD$12,500</span><span>RD$15,000</span></div>
+      <div class="pt-row"><span>36 a 50</span><span>RD$17,000</span><span>RD$20,000</span></div>
+      <div class="pt-row"><span>51 a 65</span><span>RD$24,000</span><span>RD$30,000</span></div>
+      <div class="pt-row"><span>66 a 80</span><span>RD$30,000</span><span>RD$40,000</span></div>
+    </div>
+    <ul class="price-notes">
+      <li>💳 Separa tu fecha con el <b>50%</b>; el resto se paga el día del pasadía.</li>
+      <li>⏰ Horas extra se cobran aparte: solicita información · Persona adicional: <b>RD$500</b>.</li>
+      <li>🍗 Puedes traer tu comida y bebida.</li>
+      <li>📋 Antes de confirmar, lee y acepta nuestro <a href="reglamento.html" style="color:var(--green);font-weight:600">Reglamento de uso</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="reservar">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Reservar es muy fácil</h2>
+      <p>Te respondemos por WhatsApp con disponibilidad, paquetes y precios.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Escríbenos</h3><p>Envíanos un WhatsApp con la fecha que te interesa y cuántas personas serían.</p></div>
+      <div class="step"><h3>Elige tu paquete</h3><p>Te enviamos las opciones disponibles, lo que incluye cada una y las reglas de la villa.</p></div>
+      <div class="step"><h3>Separa tu fecha</h3><p>Confirma con tu depósito y recibe la confirmación de tu reserva.</p></div>
+    </div>
+    <div class="center"><a class="btn btn-wa" href="https://wa.me/18094803996?text=Hola%20%F0%9F%91%8B%20Quiero%20informaci%C3%B3n%20para%20reservar%20un%20pasad%C3%ADa%20en%20Hacienda%20Dario%20Cruz."><svg class="wa-ico" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.34-.5.05-.97.23-3.26-.68-2.76-1.09-4.5-3.91-4.64-4.09-.13-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.27c.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46l-.41.48c-.14.14-.28.29-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg>Consultar disponibilidad</a></div>
+  </div>
+</section>
+
+<section id="opiniones" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Lo que dicen nuestros visitantes</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="score"><span class="big">4.8</span><div><div class="stars">★★★★★</div><span style="color:var(--muted)">24 opiniones en Google</span></div></div>
+    <div class="reviews">
+      <div class="review"><div class="stars">★★★★★</div><p>“Hermoso lugar, refrescante, y lleno de vegetación.”</p><span>— Raquel Muñoz, Google</span></div>
+      <div class="review"><div class="stars">★★★★★</div><p>“Un lugar para vacacionar en familia o grupo, cuando quieres tranquilidad.”</p><span>— Francisco Paulino, Google</span></div>
+    </div>
+    <div class="center"><a class="btn btn-sm" style="border:1.5px solid var(--green);color:var(--green)" href="https://maps.app.goo.gl/AQcbgDeMZ9UbP2Kq7">Ver todas las opiniones</a></div>
+  </div>
+</section>
+
+<section id="ubicacion">
+  <div class="wrap loc">
+    <div class="map-card">
+      <h3>📍 ¿Dónde estamos?</h3>
+      <p>Circunvalación Santo Domingo, Santo Domingo, República Dominicana. Fácil acceso desde la ciudad.</p>
+      <a class="btn btn-wa" style="background:var(--gold);color:var(--green-dark)" href="https://maps.app.goo.gl/AQcbgDeMZ9UbP2Kq7">Abrir en Google Maps</a>
+    </div>
+    <ul class="contact-list">
+      <li><span class="ci">📲</span><div><b>WhatsApp y llamadas</b><a href="https://wa.me/18094803996?text=Hola%20%F0%9F%91%8B%20Quiero%20informaci%C3%B3n%20para%20reservar%20un%20pasad%C3%ADa%20en%20Hacienda%20Dario%20Cruz.">809-480-3996</a></div></li>
+      <li><span class="ci">📸</span><div><b>Instagram</b><a href="https://www.instagram.com/haciendadariocruz/">@haciendadariocruz</a></div></li>
+      <li><span class="ci">👍</span><div><b>Facebook</b><a href="https://www.facebook.com/profile.php?id=61596627836758">Hacienda Dario Cruz · Villa &amp; Pasadías</a></div></li>
+    </ul>
+  </div>
+</section>
+
+<div class="cta-final">
+  <h2>Los fines de semana se llenan rápido</h2>
+  <p>Escríbenos hoy y separa tu fecha.</p>
+  <a class="btn btn-wa" href="https://wa.me/18094803996?text=Hola%20%F0%9F%91%8B%20Quiero%20informaci%C3%B3n%20para%20reservar%20un%20pasad%C3%ADa%20en%20Hacienda%20Dario%20Cruz."><svg class="wa-ico" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.34-.5.05-.97.23-3.26-.68-2.76-1.09-4.5-3.91-4.64-4.09-.13-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.27c.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46l-.41.48c-.14.14-.28.29-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg>Reservar por WhatsApp</a>
+</div>
+
+<footer>
+  <div class="social">
+    <a href="https://www.instagram.com/haciendadariocruz/">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61596627836758">Facebook</a>
+    <a href="https://maps.app.goo.gl/AQcbgDeMZ9UbP2Kq7">Google Maps</a>
+    <a href="reglamento.html">Reglamento</a>
+  </div>
+  © 2026 Hacienda Dario Cruz · Villa &amp; Pasadías · Santo Domingo, RD
+</footer>
+
+<a class="float-wa" href="https://wa.me/18094803996?text=Hola%20%F0%9F%91%8B%20Quiero%20informaci%C3%B3n%20para%20reservar%20un%20pasad%C3%ADa%20en%20Hacienda%20Dario%20Cruz." aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.34-.5.05-.97.23-3.26-.68-2.76-1.09-4.5-3.91-4.64-4.09-.13-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.27c.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46l-.41.48c-.14.14-.28.29-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></svg></a>
+
+</body>
+</html>
