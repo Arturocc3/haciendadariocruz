@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --green:#1F4D3A; --green-dark:#163829; --gold:#D9B26F; --cream:#F3E9D2; --paper:#FBF7EE;
-    --ink:#1d2a24; --muted:#5b6b62; --wa:#1FA855;
+    --green:#0B6E8F; --green-dark:#08465F; --gold:#FFC857; --cream:#FFF7E6; --paper:#F0FAFD;
+    --ink:#12303B; --muted:#4D6B76; --wa:#1FA855;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -20,7 +20,7 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 
   /* Nav */
-  nav{position:sticky;top:0;z-index:10;background:rgba(31,77,58,.96);backdrop-filter:blur(6px);color:var(--cream)}
+  nav{position:sticky;top:0;z-index:10;background:rgba(11,125,165,.95);backdrop-filter:blur(6px);color:var(--cream)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
   .brand{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;font-size:1.05rem}
   .brand .navlogo{width:38px;height:38px;border-radius:50%}
@@ -37,17 +37,17 @@
   .wa-ico{width:20px;height:20px;fill:currentColor}
 
   /* Hero */
-  header.hero{background:radial-gradient(1200px 500px at 70% -10%,#2c6a50 0%,var(--green) 55%,var(--green-dark) 100%);color:var(--cream);padding:72px 0 88px;position:relative;overflow:hidden}
+  header.hero{background:linear-gradient(160deg,#8EE3F5 0%,#38C3E6 35%,#1499C4 75%,#0B6E8F 100%);color:var(--cream);padding:72px 0 88px;position:relative;overflow:hidden}
   header.hero::after{content:"";position:absolute;inset:auto -10% -1px -10%;height:70px;background:var(--paper);border-radius:50% 50% 0 0/100% 100% 0 0}
   .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-  .eyebrow{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;font-weight:600;margin-bottom:14px}
-  .hero h1{font-size:clamp(2.3rem,5.5vw,3.8rem);margin-bottom:18px}
-  .hero p.lead{font-size:1.12rem;max-width:520px;opacity:.92;margin-bottom:28px}
+  .eyebrow{color:#FFFFFF;text-shadow:0 1px 3px rgba(0,60,90,.45);letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;font-weight:600;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.3rem,5.5vw,3.8rem);margin-bottom:18px;text-shadow:0 2px 12px rgba(0,60,90,.35)}
+  .hero p.lead{text-shadow:0 1px 6px rgba(0,60,90,.35);font-size:1.12rem;max-width:520px;opacity:.92;margin-bottom:28px}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
-  .rating{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:rgba(255,255,255,.08);border:1px solid rgba(217,178,111,.35);padding:8px 14px;border-radius:999px;font-size:.92rem}
+  .rating{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,200,87,.35);padding:8px 14px;border-radius:999px;font-size:.92rem}
   .rating b{color:var(--gold)}
-  .hero-logo{justify-self:center;width:min(320px,80vw);aspect-ratio:1;border-radius:50%;box-shadow:0 25px 60px rgba(0,0,0,.35);border:6px solid rgba(217,178,111,.4)}
-  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero p.lead{margin-inline:auto}.hero-ctas{justify-content:center}.hero-logo{width:200px;order:-1}}
+  .hero-logo{justify-self:center;width:min(320px,80vw);aspect-ratio:1;border-radius:50%;box-shadow:0 25px 60px rgba(0,0,0,.35);border:6px solid rgba(255,200,87,.4)}
+  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero p.lead{text-shadow:0 1px 6px rgba(0,60,90,.35);margin-inline:auto}.hero-ctas{justify-content:center}.hero-logo{width:200px;order:-1}}
 
   section{padding:72px 0}
   .sec-head{text-align:center;max-width:620px;margin:0 auto 42px}
@@ -56,8 +56,8 @@
   .divider{width:60px;height:3px;background:var(--gold);margin:14px auto 0;border-radius:2px}
 
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-  .card{background:#fff;border:1px solid #ece3cf;border-radius:18px;padding:28px 24px;transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,77,58,.10)}
+  .card{background:#fff;border:1px solid #CDEBF4;border-radius:18px;padding:28px 24px;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(11,110,143,.10)}
   .icon{width:52px;height:52px;border-radius:14px;background:var(--cream);display:grid;place-items:center;font-size:1.6rem;margin-bottom:16px}
   .card h3{font-size:1.25rem;color:var(--green);margin-bottom:6px}
   .card p{color:var(--muted);font-size:.95rem}
@@ -66,20 +66,20 @@
   .band .sec-head h2{color:var(--cream)}
   .band .sec-head p{color:rgba(243,233,210,.8)}
   .events{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-  .event{border:1px solid rgba(217,178,111,.35);border-radius:16px;padding:22px;background:rgba(255,255,255,.04)}
+  .event{border:1px solid rgba(255,200,87,.35);border-radius:16px;padding:22px;background:rgba(255,255,255,.04)}
   .event .e{font-size:1.8rem}
   .event h3{font-size:1.15rem;margin:8px 0 4px;color:var(--gold)}
   .event p{font-size:.92rem;opacity:.85}
 
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;counter-reset:s}
-  .step{position:relative;background:#fff;border-radius:18px;padding:34px 24px 26px;border:1px solid #ece3cf}
+  .step{position:relative;background:#fff;border-radius:18px;padding:34px 24px 26px;border:1px solid #CDEBF4}
   .step::before{counter-increment:s;content:counter(s);position:absolute;top:-18px;left:24px;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--green-dark);font-weight:700;display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:1.2rem}
   .step h3{color:var(--green);font-size:1.2rem;margin-bottom:6px}
   .step p{color:var(--muted);font-size:.95rem}
   .center{text-align:center;margin-top:36px}
 
-  .price-table{max-width:760px;margin:0 auto;background:#fff;border:1px solid #ece3cf;border-radius:20px;overflow:hidden}
-  .pt-row{display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;padding:16px 10px;border-top:1px solid #f0e8d6;align-items:center}
+  .price-table{max-width:760px;margin:0 auto;background:#fff;border:1px solid #CDEBF4;border-radius:20px;overflow:hidden}
+  .pt-row{display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;padding:16px 10px;border-top:1px solid #DDF1F7;align-items:center}
   .pt-row span:first-child{font-weight:600;color:var(--green)}
   .pt-row span:not(:first-child){font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700}
   .pt-head{background:var(--green);color:var(--cream);border-top:none}
@@ -87,7 +87,7 @@
   .pt-head small{font-weight:400;opacity:.8}
   .price-notes{list-style:none;max-width:760px;margin:22px auto 0;display:grid;gap:8px;color:var(--muted);font-size:.95rem}
   .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-  .review{background:#fff;border-radius:18px;padding:26px;border:1px solid #ece3cf}
+  .review{background:#fff;border-radius:18px;padding:26px;border:1px solid #CDEBF4}
   .stars{color:#E3A008;letter-spacing:2px;margin-bottom:10px}
   .review p{font-style:italic;margin-bottom:12px}
   .review span{color:var(--muted);font-size:.88rem}
@@ -96,12 +96,12 @@
 
   .loc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
   .map-card{background:var(--green);color:var(--cream);border-radius:22px;padding:36px;position:relative;overflow:hidden}
-  .map-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 22px,rgba(217,178,111,.06) 22px 23px)}
+  .map-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 22px,rgba(255,200,87,.06) 22px 23px)}
   .map-card *{position:relative}
   .map-card h3{font-size:1.6rem;margin-bottom:10px}
   .map-card p{opacity:.9;margin-bottom:22px}
   .contact-list{list-style:none;display:grid;gap:14px}
-  .contact-list li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #ece3cf;border-radius:14px;padding:16px 18px}
+  .contact-list li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #CDEBF4;border-radius:14px;padding:16px 18px}
   .contact-list .ci{font-size:1.4rem}
   .contact-list b{display:block;color:var(--green)}
   .contact-list a{color:var(--muted);word-break:break-all}
@@ -123,7 +123,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#inicio"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="navlogo"><defs><linearGradient id="g_navlogo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DCA6"/><stop offset=".5" stop-color="#D4A95E"/><stop offset="1" stop-color="#A97A33"/></linearGradient></defs><circle cx="100" cy="100" r="96" fill="#1F4D3A" stroke="url(#g_navlogo)" stroke-width="5"/><g transform="translate(24,22) scale(.76)"><g><path d="M 90,196 C 92,150 100,110 97,66 L 105,66 C 110,110 104,150 104,196 Z" fill="url(#g_navlogo)"/><path d="M 93.0,184 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 93.6,167 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.2,150 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.8,133 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 95.4,116 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.0,99 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.6,82 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 141.0,21.0 182.0,104.0 Q 141.0,47.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 141.0,33.6 182.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 59.0,21.0 18.0,104.0 Q 59.0,47.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 59.0,33.6 18.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 138.0,10.0 176.0,66.0 Q 138.0,36.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 138.0,22.6 176.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 62.0,10.0 24.0,66.0 Q 62.0,36.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 62.0,22.6 24.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 128.0,14.0 156.0,30.0 Q 128.0,36.8 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 128.0,24.8 156.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 72.0,14.0 44.0,30.0 Q 72.0,36.8 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 72.0,24.8 44.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 113.0,20.0 126.0,10.0 Q 113.0,35.2 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 113.0,27.2 126.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 87.0,20.0 74.0,10.0 Q 87.0,35.2 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 87.0,27.2 74.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><circle cx="95" cy="70" r="4.6" fill="url(#g_navlogo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="105" cy="70" r="4.6" fill="url(#g_navlogo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="100" cy="76" r="4.6" fill="url(#g_navlogo)" stroke="#1F4D3A" stroke-width="1.2"/></g></g></svg>Hacienda Dario Cruz</a>
+    <a class="brand" href="#inicio"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="navlogo"><defs><linearGradient id="g_navlogo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DCA6"/><stop offset=".5" stop-color="#D4A95E"/><stop offset="1" stop-color="#A97A33"/></linearGradient></defs><circle cx="100" cy="100" r="96" fill="#0B6E8F" stroke="url(#g_navlogo)" stroke-width="5"/><g transform="translate(24,22) scale(.76)"><g><path d="M 90,196 C 92,150 100,110 97,66 L 105,66 C 110,110 104,150 104,196 Z" fill="url(#g_navlogo)"/><path d="M 93.0,184 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 93.6,167 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 94.2,150 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 94.8,133 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 95.4,116 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 96.0,99 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 96.6,82 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 141.0,21.0 182.0,104.0 Q 141.0,47.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 141.0,33.6 182.0,104.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 59.0,21.0 18.0,104.0 Q 59.0,47.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 59.0,33.6 18.0,104.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 138.0,10.0 176.0,66.0 Q 138.0,36.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 138.0,22.6 176.0,66.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 62.0,10.0 24.0,66.0 Q 62.0,36.6 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 62.0,22.6 24.0,66.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 128.0,14.0 156.0,30.0 Q 128.0,36.8 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 128.0,24.8 156.0,30.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 72.0,14.0 44.0,30.0 Q 72.0,36.8 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 72.0,24.8 44.0,30.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 113.0,20.0 126.0,10.0 Q 113.0,35.2 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 113.0,27.2 126.0,10.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 87.0,20.0 74.0,10.0 Q 87.0,35.2 100,62 Z" fill="url(#g_navlogo)"/><path d="M 100,62 Q 87.0,27.2 74.0,10.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><circle cx="95" cy="70" r="4.6" fill="url(#g_navlogo)" stroke="#0B6E8F" stroke-width="1.2"/><circle cx="105" cy="70" r="4.6" fill="url(#g_navlogo)" stroke="#0B6E8F" stroke-width="1.2"/><circle cx="100" cy="76" r="4.6" fill="url(#g_navlogo)" stroke="#0B6E8F" stroke-width="1.2"/></g></g></svg>Hacienda Dario Cruz</a>
     <ul>
       <li><a href="#experiencia">La villa</a></li>
       <li><a href="#eventos">Eventos</a></li>
@@ -148,7 +148,7 @@
       </div>
       <div class="rating">⭐ <b>4.8</b> en Google · 24 opiniones</div>
     </div>
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="hero-logo"><defs><linearGradient id="g_hero-logo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DCA6"/><stop offset=".5" stop-color="#D4A95E"/><stop offset="1" stop-color="#A97A33"/></linearGradient></defs><circle cx="100" cy="100" r="96" fill="#1F4D3A" stroke="url(#g_hero-logo)" stroke-width="5"/><g transform="translate(24,22) scale(.76)"><g><path d="M 90,196 C 92,150 100,110 97,66 L 105,66 C 110,110 104,150 104,196 Z" fill="url(#g_hero-logo)"/><path d="M 93.0,184 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 93.6,167 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.2,150 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 94.8,133 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 95.4,116 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.0,99 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 96.6,82 q 5.5,3 11,0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 141.0,21.0 182.0,104.0 Q 141.0,47.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 141.0,33.6 182.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 59.0,21.0 18.0,104.0 Q 59.0,47.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 59.0,33.6 18.0,104.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 138.0,10.0 176.0,66.0 Q 138.0,36.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 138.0,22.6 176.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 62.0,10.0 24.0,66.0 Q 62.0,36.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 62.0,22.6 24.0,66.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 128.0,14.0 156.0,30.0 Q 128.0,36.8 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 128.0,24.8 156.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 72.0,14.0 44.0,30.0 Q 72.0,36.8 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 72.0,24.8 44.0,30.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 113.0,20.0 126.0,10.0 Q 113.0,35.2 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 113.0,27.2 126.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 87.0,20.0 74.0,10.0 Q 87.0,35.2 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 87.0,27.2 74.0,10.0" stroke="#1F4D3A" stroke-width="1.5" fill="none"/><circle cx="95" cy="70" r="4.6" fill="url(#g_hero-logo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="105" cy="70" r="4.6" fill="url(#g_hero-logo)" stroke="#1F4D3A" stroke-width="1.2"/><circle cx="100" cy="76" r="4.6" fill="url(#g_hero-logo)" stroke="#1F4D3A" stroke-width="1.2"/></g></g></svg>
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="hero-logo"><defs><linearGradient id="g_hero-logo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DCA6"/><stop offset=".5" stop-color="#D4A95E"/><stop offset="1" stop-color="#A97A33"/></linearGradient></defs><circle cx="100" cy="100" r="96" fill="#0B6E8F" stroke="url(#g_hero-logo)" stroke-width="5"/><g transform="translate(24,22) scale(.76)"><g><path d="M 90,196 C 92,150 100,110 97,66 L 105,66 C 110,110 104,150 104,196 Z" fill="url(#g_hero-logo)"/><path d="M 93.0,184 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 93.6,167 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 94.2,150 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 94.8,133 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 95.4,116 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 96.0,99 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 96.6,82 q 5.5,3 11,0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 141.0,21.0 182.0,104.0 Q 141.0,47.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 141.0,33.6 182.0,104.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 59.0,21.0 18.0,104.0 Q 59.0,47.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 59.0,33.6 18.0,104.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 138.0,10.0 176.0,66.0 Q 138.0,36.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 138.0,22.6 176.0,66.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 62.0,10.0 24.0,66.0 Q 62.0,36.6 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 62.0,22.6 24.0,66.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 128.0,14.0 156.0,30.0 Q 128.0,36.8 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 128.0,24.8 156.0,30.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 72.0,14.0 44.0,30.0 Q 72.0,36.8 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 72.0,24.8 44.0,30.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 113.0,20.0 126.0,10.0 Q 113.0,35.2 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 113.0,27.2 126.0,10.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><path d="M 100,62 Q 87.0,20.0 74.0,10.0 Q 87.0,35.2 100,62 Z" fill="url(#g_hero-logo)"/><path d="M 100,62 Q 87.0,27.2 74.0,10.0" stroke="#0B6E8F" stroke-width="1.5" fill="none"/><circle cx="95" cy="70" r="4.6" fill="url(#g_hero-logo)" stroke="#0B6E8F" stroke-width="1.2"/><circle cx="105" cy="70" r="4.6" fill="url(#g_hero-logo)" stroke="#0B6E8F" stroke-width="1.2"/><circle cx="100" cy="76" r="4.6" fill="url(#g_hero-logo)" stroke="#0B6E8F" stroke-width="1.2"/></g></g></svg>
   </div>
 </header>
 
@@ -189,7 +189,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Precios de pasadía</h2>
-      <p>Villa privada para tu grupo, de 10:00 am a 9:00 pm. Precio por grupo, día completo.</p>
+      <p>Villa privada para tu grupo, de 9:00 am a 8:00 pm. Precio por grupo, día completo.</p>
       <div class="divider"></div>
     </div>
     <div class="price-table">
@@ -202,7 +202,8 @@
     </div>
     <ul class="price-notes">
       <li>💳 Separa tu fecha con el <b>50%</b>; el resto se paga el día del pasadía.</li>
-      <li>⏰ Horas extra se cobran aparte: solicita información · Persona adicional: <b>RD$500</b>.</li>
+      <li>⏰ Hora extra: <b>RD$1,000</b> por hora, hasta las <b>11:00 pm</b> · Persona adicional: <b>RD$500</b>.</li>
+      <li>🔇 Desde las 9:00 pm la música debe ir a volumen bajo, por respeto a los vecinos y a la ley de ruido.</li>
       <li>🍗 Puedes traer tu comida y bebida.</li>
       <li>📋 Antes de confirmar, lee y acepta nuestro <a href="reglamento.html" style="color:var(--green);font-weight:600">Reglamento de uso</a>.</li>
     </ul>
