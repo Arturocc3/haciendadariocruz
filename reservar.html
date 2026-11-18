@@ -70,6 +70,12 @@
   .timer{display:inline-block;background:#FFF4E0;color:#9a6a12;border-radius:999px;padding:6px 14px;font-weight:600;font-size:.9rem;margin-top:8px}
   footer{text-align:center;color:var(--muted);font-size:.85rem;padding:10px 16px 40px}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1042449921655034');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1042449921655034&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -119,6 +125,18 @@
       <label for="note">Tipo de actividad (opcional)</label>
       <input id="note" name="note" maxlength="200" placeholder="Cumpleaños, reunión familiar, empresa…">
 
+      <label for="src">¿Cómo nos conociste?</label>
+      <select id="src" name="src">
+        <option value="">Elige una opción</option>
+        <option>Instagram</option>
+        <option>Facebook</option>
+        <option>Google</option>
+        <option>Recomendación de un amigo</option>
+        <option>Ya vine antes</option>
+        <option>Otro</option>
+      </select>
+      <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
       <div class="price" id="price">
         <div class="row"><span id="pLabel">Pasadía</span><span id="pTotal">—</span></div>
         <div class="big"><span>Separas con 50%: </span><span id="pDep">—</span></div>
@@ -147,6 +165,7 @@ const WA = '18094803996';
 const MONTHS = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 const DAYS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
 let data = null, view = null, sel = null;
+const T0 = Date.now();
 
 const $ = id => document.getElementById(id);
 const pad = n => String(n).padStart(2,'0');
@@ -235,7 +254,8 @@ $('form').addEventListener('submit', async e => {
   e.preventDefault();
   const b = $('send'); b.disabled = true; b.textContent = 'Reservando…';
   const q = new URLSearchParams({ action:'book', date:sel, name:$('name').value.trim(), phone:$('phone').value.trim(),
-    people:$('people').value, pay:document.querySelector('input[name=pay]:checked').value, note:$('note').value.trim(), rules:'1' });
+    people:$('people').value, pay:document.querySelector('input[name=pay]:checked').value, note:$('note').value.trim(), rules:'1',
+    src:$('src').value, hp:$('website').value, el:String(Date.now()-T0) });
   let r;
   try {
     if (data.demo) {
@@ -257,8 +277,18 @@ $('form').addEventListener('submit', async e => {
 
 function done(r) {
   $('main').style.display = 'none';
-  const msg = 'Hola 👋 Acabo de reservar en la web.\n🔖 Código: '+r.id+'\n📅 '+r.dateText+'\n👤 '+r.name+'\n👥 '+r.people+' personas\n💵 '+
-    (r.pay==='transferencia' ? 'Aquí está mi comprobante de transferencia de '+money(r.deposit)+' 👇' : 'Quiero coordinar el pago en efectivo de '+money(r.deposit)+'.');
+  const msg = [
+    'Hola, acabo de reservar en la web de *Hacienda Dario Cruz*.',
+    '',
+    '*Código:* '+r.id,
+    '*Fecha:* '+r.dateText,
+    '*Nombre:* '+r.name,
+    '*Personas:* '+r.people,
+    '*Total:* '+money(r.total)+' (separación 50%: '+money(r.deposit)+')',
+    '',
+    r.pay==='transferencia' ? 'Te envío el comprobante de la transferencia de *'+money(r.deposit)+'*.' : 'Quiero coordinar el pago en efectivo de *'+money(r.deposit)+'*.'
+  ].join('\n');
+  try { if (window.fbq) fbq('track','Schedule',{value:r.deposit,currency:'DOP',content_name:'Pasadia '+r.people+' pers'}); } catch(e){}
   let pay = '';
   if (r.pay === 'transferencia') {
     pay = '<li>Transfiere <b>'+money(r.deposit)+'</b> (50%) a una de estas cuentas:<div class="bank">'+r.banks.join('\n')+'</div></li>'+
